@@ -1,4 +1,8 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<LigaproEquipoContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LigaproEquipoContext") ?? throw new InvalidOperationException("Connection string 'LigaproEquipoContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
