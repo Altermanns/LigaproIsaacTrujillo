@@ -6,7 +6,7 @@
         public string Nombre { get; set; }
         public string Posición { get; set; }
         public int Edad {  get; set; }
-        public Equipo Equipo { get; set; }
+        public Equipo IdEquipo { get; set; }
 
     }
 
