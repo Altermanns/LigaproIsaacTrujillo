@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using LigaproIsaacTrujillo.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<LigaproIsaacTrujilloContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LigaproIsaacTrujilloContext") ?? throw new InvalidOperationException("Connection string 'LigaproIsaacTrujilloContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
